@@ -3,6 +3,8 @@ package pe.saludpublica.model;
 import org.junit.jupiter.api.DisplayName;
 import org.junit.jupiter.api.Test;
 
+import javax.print.Doc;
+
 import static org.junit.jupiter.api.Assertions.*;
 
 class DoctorTest {
@@ -80,6 +82,23 @@ class DoctorTest {
                         "CARDIOLOGIA"
                 )
         );
+    }
+
+    @Test
+    @DisplayName("DOC-006: Verificar los Atributos del Doctor")
+    void shouldPreserveDoctorAttributesAfterConstruction() {
+        Doctor doctor = new Doctor(
+                "87654321",
+                "Carlos",
+                "Ramirez",
+                "CMP67890",
+                "PEDIATRIA"
+        );
+        assertEquals("87654321", doctor.getDocumento());
+        assertEquals("Carlos",doctor.getNombres());
+        assertEquals("Ramirez",doctor.getApellidos());
+        assertEquals("CMP67890",doctor.getColegiatura());
+        assertEquals("PEDIATRIA",doctor.getEspecialidad());
     }
 
 }
