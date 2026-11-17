@@ -132,5 +132,26 @@ public class CitaMedicaTest {
         }
     }
 
+    @Test
+    @DisplayName("CIT-008: Verificar todos los atributos de la cita medica")
+    void shouldPreserveAppointmentAttributesAfterConstruction(){
+        LocalDateTime fecha = LocalDateTime.of(
+                2026, 12, 20, 15, 45);
+        CitaMedica cita = new CitaMedica(
+                "PAC002",
+                "DOC002",
+                "ESP002",
+                fecha,
+                "Control medico de seguimiento",
+                EstadoCita.ATENDIDA
+        );
+        assertEquals("PAC002", cita.getPaciente());
+        assertEquals("DOC002", cita.getDoctor());
+        assertEquals("ESP002", cita.getEspecialidad());
+        assertEquals(fecha, cita.getFechaHora());
+        assertEquals("Control medico de seguimiento", cita.getMotivo());
+        assertEquals(EstadoCita.ATENDIDA, cita.getEstado());
+    }
+
 
 }
