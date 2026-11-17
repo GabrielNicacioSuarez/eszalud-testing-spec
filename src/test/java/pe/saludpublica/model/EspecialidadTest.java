@@ -31,4 +31,15 @@ public class EspecialidadTest {
                 )
         );
     }
+
+    @Test
+    @DisplayName("ESP-003: Verificar los atributos de la Especialidad")
+    void shouldPreserveSpecialtyAttributesAfterConstruction() {
+        Especialidad especialidad = new Especialidad(
+                "Neurologia",
+                "Especialidad medica del sistema nervioso"
+        );
+        assertEquals("Neurologia", especialidad.getNombre());
+        assertEquals("Especialidad medica del sistema nervioso", especialidad.getDescripcion());
+    }
 }
