@@ -52,4 +52,20 @@ public class CitaMedicaTest {
 
         ));
     }
+
+    @Test
+    @DisplayName("CIT-003: Rechazar cita sin doctor")
+    void shouldRejectAppointmentWithoutDoctor(){
+        LocalDateTime fecha = LocalDateTime.of(
+                2026, 12, 15, 10, 30
+        );
+        assertThrows(IllegalArgumentException.class, () -> new CitaMedica(
+                "PAC001",
+                null,
+                "ESP001",
+                fecha,
+                "Consulta general medica",
+                EstadoCita.PROGRAMADA
+        ));
+    }
 }
