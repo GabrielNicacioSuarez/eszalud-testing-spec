@@ -20,7 +20,12 @@ public class CitaMedica {
             String motivo,
             EstadoCita estado
     ) {
-        //PENDIENTE PARA LA PRUEBA GREEN
+        this.paciente = paciente;
+        this.doctor = doctor;
+        this.especialidad = especialidad;
+        this.fechaHora = fechaHora;
+        this.motivo = motivo;
+        this.estado = estado;
     }
 
     public String getPaciente() {
