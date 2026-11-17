@@ -3,8 +3,7 @@ package pe.saludpublica.model;
 import org.junit.jupiter.api.DisplayName;
 import org.junit.jupiter.api.Test;
 
-import static org.junit.jupiter.api.Assertions.assertEquals;
-import static org.junit.jupiter.api.Assertions.assertNotNull;
+import static org.junit.jupiter.api.Assertions.*;
 
 class DoctorTest {
 
@@ -20,4 +19,20 @@ class DoctorTest {
         assertEquals("CMP12345", doctor.getColegiatura());
         assertEquals("CARDIOLOGIA", doctor.getEspecialidad());
     }
+
+    @Test
+    @DisplayName("DOC-002: Rechazar doctor sin documento")
+    void shouldRejectDoctorWithoutDocument() {
+        assertThrows(
+                IllegalArgumentException.class,
+                () -> new Doctor(
+                        null,
+                        "María",
+                        "Rojas",
+                        "CMP12345",
+                        "CARDIOLOGIA"
+                )
+        );
+    }
+
 }
