@@ -98,4 +98,21 @@ public class CitaMedicaTest {
         ));
     }
 
+    @Test
+    @DisplayName("CIT-006: Rechazar cita con estado nulo")
+    void shouldRejectAppointmentWithoutStatus(){
+        LocalDateTime fecha = LocalDateTime.of(
+                2026, 12, 15, 10, 30);
+        assertThrows(IllegalArgumentException.class, () -> new CitaMedica(
+                "PAC001",
+                "DOC001",
+                "ESP001",
+                fecha,
+                "Consulta medica general",
+                null
+
+        ));
+    }
+
+
 }
