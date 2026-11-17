@@ -1,0 +1,23 @@
+package pe.saludpublica.model;
+
+import org.junit.jupiter.api.DisplayName;
+import org.junit.jupiter.api.Test;
+
+import static org.junit.jupiter.api.Assertions.assertEquals;
+import static org.junit.jupiter.api.Assertions.assertNotNull;
+
+public class EspecialidadTest {
+
+    @Test
+    @DisplayName("ESP-001: Crear especialidad con datos válidos")
+    void shouldCreateSpecialityWithValidData() {
+        Especialidad especialidad = new Especialidad(
+                "Cardiologia",
+                "Especialidad medica del corazon"
+        );
+        assertNotNull(especialidad);
+        assertEquals("Cardiologia", especialidad.getNombre());
+        assertEquals("Especialidad medica del corazon", especialidad.getDescripcion());
+
+    }
+}
